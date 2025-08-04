@@ -1,8 +1,8 @@
 {
-  "name": "wszhu-home",
+  "name": "home",
   "private": true,
   "author": "wushengzhu",
-  "github": "https://github.com/wushengzhu/wszhu-home",
+  "github": "https://github.com/YeXingKE/home",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
