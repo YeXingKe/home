@@ -3,7 +3,7 @@
   <template v-if="!store.mobileOpenState">
     <div class="home-container">
       <div class="person-container">
-        <TypeStrings :strings="typedText" />
+        <TypeStrings :strings="typedText" v-if="typedText?.length"/>
         <div class="person-web">
           <template v-for="item of HomePage">
             <CircleItem
@@ -54,7 +54,7 @@
   <template v-else>
     <div class="home-mobile-container">
       <CircleItem :src="'/images/logo.jpg'" />
-      <TypeStrings :strings="typedText" :typeSpeed="50" :fontSize="24" />
+      <TypeStrings :strings="typedText" :typeSpeed="50" :fontSize="24" v-if="typedText?.length"/>
     </div>
   </template>
 </template>
@@ -74,6 +74,7 @@ import BookShelf from '@/views/BookShelf/index.vue'
 import { ref, shallowRef, onMounted, watch } from 'vue'
 import { HomePage } from '@/utils/contants'
 import { mainStore } from '@/store'
+import { getClassicalChinesePoetry } from '@/api'
 
 const penName = ref(import.meta.env.VITE_HOME_PEN_NAME)
 const store = mainStore()
@@ -89,7 +90,7 @@ const modalRef = ref()
 // 它只会将传入的对象的第一层属性转换为响应式数据，
 // 而不会递归地将嵌套对象的属性都转换为响应式数据。
 const curComponent = shallowRef()
-const typedText = ref(["👋I'm wushengzhu", "🪄Welcome to wszhu's Home"])
+const typedText = ref<string[]>([]) // ["👋I'm wushengzhu", "🪄Welcome to wszhu's Home"]
 const openModal = (type: homeTools) => {
   curComponent.value = pageComponents[type]
   if (modalRef.value) {
@@ -99,14 +100,25 @@ const openModal = (type: homeTools) => {
 
 watch(
   () => store.mobileOpenState,
-  (val: boolean) => {
+  async (val: boolean) => {
     if (val) {
       typedText.value = ["👋I'm wushengzhu", 'Web Designer']
     } else {
-      typedText.value = ["👋I'm wushengzhu", "🪄Welcome to wszhu's Home"]
+      await getTypeText()
     }
   }
 )
+
+const getTypeText = async ()=>{
+  const { content } = await getClassicalChinesePoetry()
+  if(content){
+    typedText.value = [content]
+  }
+}
+
+onMounted(async ()=>{
+   await getTypeText()
+})
 </script>
 <style lang="scss" scoped>
 .home-mobile-container {

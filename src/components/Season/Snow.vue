@@ -12,7 +12,7 @@ const snowList = ref([
 ]);
 </script>
 <style lang="scss" scoped>
-@import url("./style/snow.scss");
+@use "./style/snow.scss";
 
 .snow-container {
   // height: 100vh;

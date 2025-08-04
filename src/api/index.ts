@@ -79,3 +79,12 @@ export const getOtherWeather = async () => {
   const res = await fetch('https://api.oioweb.cn/api/weather/GetWeather')
   return await res.json()
 }
+
+/**
+ * 获取中国古诗词
+ * @returns 
+ */
+export const getClassicalChinesePoetry = async () => {
+  const res = await fetch('https://v1.jinrishici.com/rensheng/dushu') 
+  return await res.json()
+}

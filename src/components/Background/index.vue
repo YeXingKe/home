@@ -51,7 +51,8 @@ const setStarStyle = () =>
 
 .light-bg {
   transform: scale(1);
-  filter: blur(0);
+  // filter: blur(0); 显式禁用模糊效果
+  filter: brightness(60%);
   position: absolute;
   left: 0;
   top: 0;

@@ -15,7 +15,7 @@ export const mainStore = defineStore(storeKey, {
         silentMode: false,
         seasonMode: 'default',
         musicSource: 'tencent',
-        pcBgc: '/images/pc/1.webp',
+        pcBgc: '/images/pc/bg.png',
         mobileBgc: '/images/mobile/1.jpg',
       } as SystemSettings,
       isDark: false, // 主题模式：白天、黑夜,默认白天
