@@ -12,10 +12,10 @@ cd dist
 # 如果是发布到自定义域名
 echo 'home.wszhu.top' > CNAME
 
-git init
+# git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'build: deploy web site'
 
-git push -f git@github.com:wushengzhu/home.git HEAD:gh-pages 
+git push -f git@github.com:YeXingKe/home.git HEAD:gh-pages 
 
-cd -
+# cd -
