@@ -10,7 +10,12 @@
 ![fetch-jsonp](https://img.shields.io/badge/fetch--jsonp-%5E1.3.0-8A2BE2)
 
 > 基于Vue3实现的静态个人主页，包含实时化时钟和日期、主题现代精致、天气节日化等
-
+- 示例：https://home.wszhu.top
+  
+## 🍃 目前分支
+- main : 发布分支
+- develop ： 开发分支，pull-request合并分支
+- experiment/nav-page : 基于Realease v0.1.0创建的一个实验性分支，里面的功能没发布
 ## 📌 目录
 - [功能特性](#✨-功能特性)
 - [快速开始](#🚀-快速开始)
