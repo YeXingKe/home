@@ -24,8 +24,8 @@ jobs:
         with:
           version: 7.2.1
 
-      - name: 配置 npm 源为官方源
-        run: pnpm config set registry https://registry.npmjs.org/
+      - name: 移除国内镜像配置（CI 使用官方源）
+        run: rm -f .npmrc
 
       - name: Install modules
         run: pnpm install
