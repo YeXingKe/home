@@ -23,8 +23,8 @@ jobs:
         uses: pnpm/action-setup@v2.1.0
         with:
           version: 8
-
-      - name: 移除国内镜像配置（CI 使用官方源）
+        # 移除国内镜像配置，本地开发可使用（CI 使用官方源）
+      - name: Remove .npmrc for CI (use official registry)
         run: rm -f .npmrc
 
       - name: Install modules

@@ -24,6 +24,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import { mainStore } from "@/store";
+import type { Placement } from 'element-plus';
 
 const store = mainStore()
 
@@ -46,7 +47,7 @@ const props = defineProps({
     default: "个人简历"
   },
   placement: {
-    type: String,
+    type: String as () => Placement,
     default: "top"
   },
   src: {
