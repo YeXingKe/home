@@ -22,7 +22,7 @@ jobs:
       - name: 安装 pnpm
         uses: pnpm/action-setup@v2.1.0
         with:
-          version: 7.2.1
+          version: 8
 
       - name: 移除国内镜像配置（CI 使用官方源）
         run: rm -f .npmrc
